@@ -8,18 +8,22 @@ import java.io.IOException;
 
 
 public class test {
-    Graph graph = new Graph();
+    Graph graph = new Graph(10);
     @Test
     public void testBranchAndBound(){
+
+
         graph.show();
-
-
         long time = System.currentTimeMillis();
         graph.BranchAndBound();
         System.out.println("time: " +(System.currentTimeMillis()-time));
         time = System.currentTimeMillis();
         graph.Greed();
         System.out.println("time: " +(System.currentTimeMillis()-time));
+        time = System.currentTimeMillis();
+        graph.mstPrim();
+        System.out.println("time: " +(System.currentTimeMillis()-time));
+
     }
 
     @Test
