@@ -45,7 +45,7 @@ public class Mylist {
             System.out.println("mid: "+ mid +" low: " + low +" high: " + high);
             iter++;
             //System.out.println(" low: " + table.get(low) + " high: " + table.get(high) + " mid:  "+table.get(mid) +" toFind: "+toFind);
-            System.out.println(" low: " + table.get(low) + " high: " + table.get(high) + " mid:  "+table.get(mid) +" toFind: "+toFind);
+            //System.out.println(" low: " + table.get(low) + " high: " + table.get(high) + " mid:  "+table.get(mid) +" toFind: "+toFind);
             if (table.get(mid) < toFind) {
                 System.out.println("low = mid + 1");
                 low = mid + 1;
@@ -54,7 +54,7 @@ public class Mylist {
                 System.out.println("high = mid - 1");
                 high = mid - 1;
             }else  {
-                System.out.println(" item: " + table.get(mid)+" iter: " + iter);
+                System.out.println(" item: " + mid+" iter: " + iter);
                 return mid;
             }
             System.out.println(table.get(low)+" < "+ toFind+" : " + (table.get(mid) < toFind) +" "+ table.get(low)+" < "+ toFind+" : " + (table.get(mid) > toFind));
@@ -63,14 +63,14 @@ public class Mylist {
 
 
         if (table.get(low) == toFind) {
-            System.out.println(" item: " + table.get(low)+" iter: " + iter);
+            System.out.println(" item: " + low+" iter: " + iter);
             return low;
         }
         if (table.get(high) == toFind) {
-            System.out.println(" item: " + table.get(high)+" iter: " + iter);
+            System.out.println(" item: " + high+" iter: " + iter);
             return high;
         }
-        System.out.println("Я тупой ничего не нашел");
+        System.out.println("Решение не найдено");
         return -1; // Not found
     }
 
@@ -78,6 +78,7 @@ public class Mylist {
     public int indexSearch (int toFind){
         int i=0;
         int j=0;
+        int iter = 0;
         ArrayList<Integer> kIndex = new ArrayList<>(); // массив ключей индексной таблицы
         ArrayList<Integer> pIndex = new ArrayList<>(); // массив индексов индексной таблицы
 
@@ -98,9 +99,10 @@ public class Mylist {
         else
             i = pIndex.get(j - 1);
         for (; i < pIndex.get(j); i++) // осуществляем поиск в основной таблице
-        {                         //до следующего индекса индексной таблицы
+        {
+            iter++;//до следующего индекса индексной таблицы
             if (table.get(i) == toFind)  // если найдено введенное значение, выводим его
-                System.out.println(" item: "+table.get(i));
+                System.out.println(" item: "+i +" iter: "+ iter);
         }
         return 0;
     }
@@ -110,9 +112,7 @@ public class Mylist {
         Scanner in = new Scanner(System.in);
         System.out.println("Input: ");
         int toFind = in.nextInt();
-        //System.out.println("toFind: "+ toFind);
         myList.indexSearch(toFind);
-        //toFind = in.nextInt();
-        //myList.interpolationSearch(toFind);
+        myList.interpolationSearch(toFind);
     }
 }

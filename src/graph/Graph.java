@@ -45,7 +45,7 @@ public class Graph {
             System.out.println("");
         }
     }
-    public void BranchAndBound(){
+    public int BranchAndBound(){
         int L = 0;
         for(int i = 0; i < vertexMax; i++)
             for(int j = i; j < vertexMax; j++)
@@ -58,6 +58,7 @@ public class Graph {
         path.add(0);
         branchAndBound(path,0,L/2);
         System.out.println( " minimalPath: " + minimalPath);
+        return minimalPath;
     }
 
 

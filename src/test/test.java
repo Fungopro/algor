@@ -11,19 +11,17 @@ public class test {
     Graph graph = new Graph(10);
     @Test
     public void testBranchAndBound(){
-
-
         graph.show();
         long time = System.currentTimeMillis();
-        graph.BranchAndBound();
+        double A = graph.BranchAndBound();
         System.out.println("time: " +(System.currentTimeMillis()-time));
         time = System.currentTimeMillis();
         graph.Greed();
         System.out.println("time: " +(System.currentTimeMillis()-time));
         time = System.currentTimeMillis();
-        graph.mstPrim();
+        double a =graph.mstPrim();
         System.out.println("time: " +(System.currentTimeMillis()-time));
-
+        System.out.println("Относительная погрешность: " + Math.abs(A-a)/A);
     }
 
     @Test
