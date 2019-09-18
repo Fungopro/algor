@@ -25,8 +25,8 @@ public class Graph {
         for(int i = 0; i < vertexMax; i++){
             for(int j = i; j < vertexMax; j++){
 
-                matrix[i][j] = (int) (Math.random()*20+1);
-                matrix[j][i] =matrix[i][j];
+                matrix[i][j] = (int) (Math.random()*9+1);
+                matrix[j][i] =(int) (Math.random()*9+1);
                 if (i==j)
                     matrix[i][j] =0;
             }
@@ -35,12 +35,8 @@ public class Graph {
 
     public void show(){
         for(int i = 0; i < vertexMax; i++){
-            for(int j = i; j < vertexMax; j++){
-                matrix[i][j] = (int) (Math.random()*20+1);
-                matrix[j][i] =matrix[i][j];
-                if (i==j)
-                    matrix[i][j] =0;
-                System.out.print(matrix[i][j]+" ");
+            for(int j = 0; j < vertexMax; j++){
+                System.out.print(matrix[i][j]+"  ");
             }
             System.out.println("");
         }
@@ -86,7 +82,7 @@ public class Graph {
                 if (i==j&&i!=vertexMax-1)
                     L+=matrix[i][j+1];
         L+=matrix[0][vertexMax-1];
-        System.out.println(L);
+        System.out.println(" L: "+L);
         minimalPath=L;
         int INF = Integer.MAX_VALUE / 2;
         boolean[] used = new boolean [vertexMax]; // массив пометок
@@ -146,7 +142,7 @@ public class Graph {
                 if (i==j&&i!= vertexMax -1)
                     L+=matrix[i][j+1];
         L+=matrix[0][vertexMax -1];
-        System.out.println(" minimalPath:" + + L);
+        System.out.println(" L:" + L);
 
         int[] pa=new int[vertexMax -1];
         for(int i = 1; i< vertexMax; i++)

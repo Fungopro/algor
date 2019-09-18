@@ -14,13 +14,13 @@ public class test {
         graph.show();
         long time = System.currentTimeMillis();
         double A = graph.BranchAndBound();
-        System.out.println("time: " +(System.currentTimeMillis()-time));
+        System.out.println(" BranchAndBound time: " +(System.currentTimeMillis()-time));
         time = System.currentTimeMillis();
         graph.Greed();
-        System.out.println("time: " +(System.currentTimeMillis()-time));
+        System.out.println(" Greed time: " +(System.currentTimeMillis()-time));
         time = System.currentTimeMillis();
         double a =graph.mstPrim();
-        System.out.println("time: " +(System.currentTimeMillis()-time));
+        System.out.println(" mstPrim time: " +(System.currentTimeMillis()-time));
         System.out.println("Относительная погрешность: " + Math.abs(A-a)/A);
     }
 
